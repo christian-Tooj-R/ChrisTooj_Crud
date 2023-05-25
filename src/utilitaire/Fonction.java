@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package util;
+package utilitaire;
 
 import annotation.Column;
 import java.lang.reflect.Field;
@@ -34,6 +34,7 @@ public class Fonction {
         Object o = cls.newInstance();
             for (Field fd : fieldAnnoted) {
                 Method meth = cls.getMethod("set"+capitalize(fd.getName()),fd.getType());
+                System.out.println("retooo    "+resultset.getObject(fd.getAnnotation(Column.class).name()));
                 meth.invoke(o,resultset.getObject(fd.getAnnotation(Column.class).name()));
             }
             vect.add(o);

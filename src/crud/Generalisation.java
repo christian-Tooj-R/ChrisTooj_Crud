@@ -14,13 +14,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
-import util.Fonction;
+import utilitaire.Fonction;
 
 /**
  *
  * @author Christian
  */
 public class Generalisation {
+    
+    
     /*********SELECT**********/
     public Object[] select(Connection connection,String orderby) throws Exception{
         
