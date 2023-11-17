@@ -36,6 +36,7 @@ public class Generalisation {
         }
         
         System.out.println(query);
+        System.out.println("Nom du base de donnée "+ Fonction.getDatabaseName(connection));
         PreparedStatement statement = connection.prepareStatement(query);
         ResultSet resultSet = statement.executeQuery();
         

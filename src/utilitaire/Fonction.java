@@ -7,8 +7,11 @@ package utilitaire;
 import annotation.Column;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 
@@ -80,6 +83,8 @@ public class Fonction {
         } else if (fieldType == double.class) {
             return (double) value != 0.0;
         } else if (fieldType == java.lang.String.class) {
+            return  value != null;
+        }else if (fieldType == java.sql.Date.class) {
             return  value != null;
         }
         
@@ -212,5 +217,10 @@ public class Fonction {
                 }
                 count++;
         }
+    }
+    
+    public static String getDatabaseName(Connection connection) throws SQLException {
+        DatabaseMetaData metaData = connection.getMetaData();
+        return metaData.getDatabaseProductName();
     }
 }
